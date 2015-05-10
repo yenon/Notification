@@ -22,10 +22,12 @@ import javax.swing.JFrame;
  */
 public class NotificationManager extends Thread {
 
-    private Deque<JFrame> frames = new ArrayDeque();
-    private int width, height, currentHeight;
+    private final Deque<JFrame> frames;
+    private final int width, height;
+    private int currentHeight;
 
     public NotificationManager() {
+        this.frames = new ArrayDeque();
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         width = gd.getDisplayMode().getWidth();
         height = gd.getDisplayMode().getHeight();
